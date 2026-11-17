@@ -1,0 +1,939 @@
+@font-face {
+    font-family: 'Cascadia Code';
+    src: url('fonts/CascadiaCode.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #020914;
+    color: white;
+    font-family: 'Cascadia Code', monospace;
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    height: 55px;
+
+    background: #f9b900;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar a {
+    color: #111;
+
+    text-decoration: none;
+
+    font-weight: bold;
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: white;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    min-height: 360px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 70px;
+
+    padding: 60px 10%;
+}
+
+.hero-imagen {
+    width: 40%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-imagen img {
+    width: 70%;
+    max-width: 350px;
+
+    display: block;
+}
+
+.hero-texto {
+    width: 45%;
+}
+
+.hero-texto h1 {
+    font-size: 38px;
+
+    margin-bottom: 20px;
+}
+
+.hero-texto p {
+    color: #d5d9e0;
+
+    line-height: 1.7;
+
+    margin-bottom: 15px;
+}
+
+.azul {
+    color: #1465e8;
+
+    font-weight: bold;
+
+    font-size: 22px;
+}
+
+/* =====================================================
+   SECCIONES
+===================================================== */
+
+.seccion {
+    padding: 45px 7% 60px;
+}
+
+/* =====================================================
+   LÍNEA AMARILLA DEL PROYECTO
+===================================================== */
+
+.linea-proyecto {
+
+    width: 100%;
+
+    height: 55px;
+
+    background: #f9b900;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    margin-bottom: 45px;
+}
+
+/* =====================================================
+   CUADRO AZUL SOBRE LA MISMA LÍNEA
+===================================================== */
+
+.titulo-azul {
+
+    background: #1168ed;
+
+    padding: 11px 25px;
+
+    position: relative;
+
+    z-index: 5;
+
+    flex-shrink: 0;
+}
+
+.titulo-azul h2 {
+
+    font-size: 21px;
+
+    white-space: nowrap;
+}
+
+/* =====================================================
+   IMÁGENES PEQUEÑAS SOBRE LA MISMA LÍNEA
+===================================================== */
+
+.mini-imagen {
+
+    width: auto;
+
+    height: 45px;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+.mini-imagen img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.mini-separada {
+
+    margin-left: 45px;
+}
+
+/* =====================================================
+   MIS PROYECTOS
+===================================================== */
+
+.proyectos-seccion {
+    background: #f9b900;
+}
+
+.titulo-seccion {
+    margin-bottom: 35px;
+}
+
+.titulo-seccion h2 {
+
+    display: inline-block;
+
+    background: #1168ed;
+
+    padding: 10px 25px;
+
+    font-size: 22px;
+}
+
+.proyectos-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.card {
+
+    background: #071326;
+
+    border: 4px solid #086cff;
+
+    padding: 8px;
+
+    transition: 0.3s;
+}
+
+.card:hover {
+
+    transform: translateY(-8px);
+}
+
+.card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.card img {
+
+    width: 100%;
+
+    height: 600px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.card h3 {
+
+    text-align: center;
+
+    padding: 12px 5px;
+
+    font-size: 14px;
+}
+
+/* =====================================================
+   CARRUSELES DE IMÁGENES
+===================================================== */
+
+.carrusel {
+
+    width: 100%;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+/* Ocultar botones radio */
+
+.carrusel input {
+
+    display: none;
+}
+
+/* Contenedor */
+
+.carrusel-imagenes {
+
+    width: 75%;
+
+    max-width: 900px;
+}
+
+/* Todas las imágenes ocultas */
+
+.slide {
+
+    display: none;
+
+    background: #071326;
+
+    border: 5px solid #0870ff;
+
+    padding: 6px;
+}
+
+.slide img {
+
+    width: 100%;
+
+    height: 400px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+/* =====================================================
+   MOSTRAR IMAGEN ACTIVA
+===================================================== */
+
+/* RETOQUE */
+
+#retoque1:checked ~ .carrusel-imagenes .retoque1,
+#retoque2:checked ~ .carrusel-imagenes .retoque2,
+#retoque3:checked ~ .carrusel-imagenes .retoque3,
+#retoque4:checked ~ .carrusel-imagenes .retoque4,
+#retoque5:checked ~ .carrusel-imagenes .retoque5,
+#retoque6:checked ~ .carrusel-imagenes .retoque6,
+#retoque7:checked ~ .carrusel-imagenes .retoque7,
+#retoque8:checked ~ .carrusel-imagenes .retoque8,
+#retoque9:checked ~ .carrusel-imagenes .retoque9,
+#retoque10:checked ~ .carrusel-imagenes .retoque10 {
+
+    display: block;
+}
+
+/* =====================================================
+   FLECHAS
+===================================================== */
+
+.flechas {
+
+    position: absolute;
+
+    width: 92%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    pointer-events: none;
+}
+
+.flecha {
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    background: #1168ed;
+
+    color: white;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    font-size: 22px;
+
+    transition: 0.3s;
+}
+
+.flecha:hover {
+
+    background: white;
+
+    color: #1168ed;
+
+    transform: scale(1.1);
+}
+
+/* DISEÑO PUBLICITARIO Y REDES SOCIALES */
+
+#diseno1:checked ~ .carrusel-imagenes .diseno1,
+#diseno2:checked ~ .carrusel-imagenes .diseno2,
+#diseno3:checked ~ .carrusel-imagenes .diseno3,
+#diseno4:checked ~ .carrusel-imagenes .diseno4,
+#diseno5:checked ~ .carrusel-imagenes .diseno5,
+#diseno6:checked ~ .carrusel-imagenes .diseno6,
+#diseno7:checked ~ .carrusel-imagenes .diseno7,
+#diseno8:checked ~ .carrusel-imagenes .diseno8 {
+    display: block;
+}
+
+/* FLECHAS */
+
+#diseno1:checked ~ .flechas label:nth-child(2),
+#diseno2:checked ~ .flechas label:nth-child(3),
+#diseno3:checked ~ .flechas label:nth-child(4),
+#diseno4:checked ~ .flechas label:nth-child(5),
+#diseno5:checked ~ .flechas label:nth-child(6),
+#diseno6:checked ~ .flechas label:nth-child(7),
+#diseno7:checked ~ .flechas label:nth-child(8),
+#diseno8:checked ~ .flechas label:nth-child(1) {
+    display: flex;
+}
+
+/* =====================================================
+   FLECHAS RETOQUE
+===================================================== */
+
+#retoque1:checked ~ .flechas label:nth-child(2),
+#retoque2:checked ~ .flechas label:nth-child(3),
+#retoque3:checked ~ .flechas label:nth-child(4),
+#retoque4:checked ~ .flechas label:nth-child(5),
+#retoque5:checked ~ .flechas label:nth-child(6),
+#retoque6:checked ~ .flechas label:nth-child(7),
+#retoque7:checked ~ .flechas label:nth-child(8),
+#retoque8:checked ~ .flechas label:nth-child(9),
+#retoque9:checked ~ .flechas label:nth-child(10),
+#retoque10:checked ~ .flechas label:nth-child(1) {
+
+    display: flex;
+}
+
+/* =====================================================
+   ELEMENTOS INDIVIDUALES DE PROYECTOS
+===================================================== */
+
+.pdf-proyecto {
+    width: 300px;
+    min-height: 220px;
+    margin: 0 auto;
+    background: #071326;
+    border: 5px solid #0870ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+    padding: 25px;
+}
+
+.pdf-proyecto i {
+    font-size: 50px;
+    color: #1465e8;
+}
+
+.pdf-proyecto a {
+    background: #1168ed;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.pdf-proyecto a:hover {
+    background: white;
+    color: #1168ed;
+}
+
+.imagen-principal {
+    width: 45%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #071326;
+    border: 5px solid #0870ff;
+    padding: 6px;
+}
+
+.imagen-principal img {
+    width: 100%;
+    height: 450px;
+    object-fit: contain;
+    display: block;
+}
+
+.mini-proyecto {
+    width: 180px;
+    height: 120px;
+    margin: 30px auto 0;
+    background: #071326;
+    border: 4px solid #0870ff;
+    padding: 4px;
+}
+
+.mini-proyecto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+section[id] {
+    scroll-margin-top: 70px;
+}
+
+/* =====================================================
+   MANUAL DE MARCA
+===================================================== */
+
+.imagen-manual {
+    position: relative;
+    width: 500px;
+    height: 350px;
+    margin: 40px auto;
+    border: 5px solid #0870ff;
+    overflow: hidden;
+}
+
+.imagen-manual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.boton-pdf {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #1168ed;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+.boton-pdf:hover {
+    background: white;
+    color: #1168ed;
+}
+
+/* =====================================================
+   PÁGINA WEB
+===================================================== */
+
+.imagen-web {
+    position: relative;
+    width: 500px;
+    height: 350px;
+    margin: 40px auto;
+    border: 5px solid #0870ff;
+    overflow: hidden;
+}
+
+.imagen-web img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.boton-web {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #1168ed;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    border: 2px solid white;
+
+    transition: 0.3s;
+}
+
+.boton-web:hover {
+    background: white;
+    color: #1168ed;
+}
+
+/* =====================================================
+   DISEÑO DE PERSONAJE
+===================================================== */
+
+.personaje-contenido {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+}
+
+/* =====================================================
+   ANIMACIÓN 2D
+===================================================== */
+
+.animacion-contenido {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 50px;
+}
+
+.animacion-imagen,
+.video-vertical {
+
+    width: 45%;
+
+    background: #071326;
+
+    border: 5px solid #0870ff;
+
+    padding: 6px;
+}
+
+.animacion-imagen img {
+
+    width: 100%;
+
+    height: 400px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+.video-vertical {
+    width: 100%;
+    max-width: 340px;
+}
+
+.video-vertical video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =====================================================
+   MOTION GRAPHICS
+===================================================== */
+
+.videos-motion {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.video-motion {
+    width: 100%;
+    background: #071326;
+    border: 4px solid #0870ff;
+    overflow: hidden;
+}
+
+.video-motion video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .videos-motion {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* CELULAR */
+
+@media (max-width: 550px) {
+
+    .videos-motion {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =====================================================
+   CONTACTO
+===================================================== */
+
+footer {
+
+    min-height: 180px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 50px;
+
+    padding: 40px 7%;
+
+    background: #020914;
+}
+
+footer h2 {
+
+    font-size: 28px;
+}
+
+.redes {
+
+    display: flex;
+
+    gap: 25px;
+}
+
+.redes a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 42px;
+
+    transition: 0.3s;
+}
+
+.redes a:hover {
+
+    transform: scale(1.2);
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .navbar nav {
+
+        gap: 15px;
+    }
+
+    .hero {
+
+        flex-direction: column;
+
+        padding: 40px 7%;
+
+        gap: 30px;
+    }
+
+    .hero-imagen,
+    .hero-texto {
+
+        width: 100%;
+    }
+
+    .proyectos-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .linea-proyecto {
+
+        overflow-x: auto;
+    }
+
+    .animacion-contenido {
+
+        flex-direction: column;
+    }
+
+    .animacion-imagen,
+    .video-vertical {
+
+        width: 90%;
+    }
+
+    .imagen-principal {
+        width: 90%;
+    }
+
+    .imagen-principal img {
+        height: 350px;
+    }
+
+    .pdf-proyecto {
+        width: 90%;
+    }
+
+}
+
+/* =====================================================
+   CELULARES
+===================================================== */
+
+@media (max-width: 550px) {
+
+    .navbar {
+
+        padding: 0 12px;
+    }
+
+    .navbar nav {
+
+        gap: 8px;
+    }
+
+    .navbar a {
+
+        font-size: 10px;
+    }
+
+    .hero-texto h1 {
+
+        font-size: 28px;
+    }
+
+    .proyectos-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .seccion {
+        border-bottom: none;
+    }
+
+    .linea-proyecto {
+
+        overflow-x: auto;
+    }
+
+    .titulo-azul h2 {
+
+        font-size: 14px;
+    }
+
+    .mini-imagen {
+
+        min-width: 100px;
+    }
+
+    .carrusel-imagenes {
+
+        width: 78%;
+    }
+
+    .slide img {
+
+        height: 300px;
+    }
+
+    .flechas {
+
+        width: 100%;
+    }
+
+    .flecha {
+
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 16px;
+    }
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+}
+
+/* =====================================================
+   ACCESIBILIDAD
+===================================================== */
+
+.flecha:focus-visible,
+a:focus-visible {
+    outline: 3px solid #f9b900;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+}
